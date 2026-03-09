@@ -17,31 +17,31 @@ This project is a Machine Learning based web application that detects diseases i
 
 ## ⚙️Technologies Used
 
-### 🔹 Programming Language
+### 🖥️ Programming Language
 
   • Python – Core language used for preprocessing, model training, and application logic
   
-### 🔹 Machine Learning 
+### 🤖 Machine Learning 
 
   •	Scikit-learn – Used for training and evaluating traditional machine learning models
   
-### 🔹 Deep Learning
+### 🧠 Deep Learning
 
   •	TensorFlow – Deep learning framework used for CNN model training
   
   •	Keras – High-level API used for building and training CNN models
   
-### 🔹 Web Framework
+### 🌐 Web Framework
 
   •	Flask – Used to develop the web application for leaf disease prediction
   
-### 🔹 Image Processing
+### 🖼️ Image Processing
 
   •	OpenCV –Used for  Image preprocessing and feature extraction
   
   •	NumPy –Used for Numerical operations on image data
   
-### 🔹 Data Analysis & Visualization
+### 📊 Data Analysis & Visualization
 
   •	Pandas – Used for data handling and analysis
   
@@ -49,11 +49,11 @@ This project is a Machine Learning based web application that detects diseases i
   
   •	Seaborn – Used for statistical data visualization
   
-### 🔹 Model & Data Handling
+### 💾 Model & Data Handling
 
   •	Trained Model Files (.h5 / .pkl) – Used to load the best performing model for rediction
   
-### 🔹Deployment & Environment
+###  🚀Deployment & Environment
 
   •	Local Web Server – Flask application runs locally for testing and development
   
