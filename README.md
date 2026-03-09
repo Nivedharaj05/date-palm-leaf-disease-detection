@@ -4,7 +4,7 @@
 This project is a Machine Learning based web application that detects diseases in Date Palm leaves using image processing techniques. Multiple Machine Learning and CNN models were trained and compared, and the best performing model was deployed in the web application.
 
 
-## 🚀Features
+## 🎯Features
 
 •	Upload leaf images for disease detection
 
@@ -15,7 +15,7 @@ This project is a Machine Learning based web application that detects diseases i
 •	Web interface for prediction results
 
 
-## 🛠️Technologies Used
+## ⚙️Technologies Used
 
 ###🔹 Programming Language
 
@@ -60,7 +60,7 @@ This project is a Machine Learning based web application that detects diseases i
   •	Python Virtual Environment  – Used to manage project dependencies
   
   
-## 🧠Model Used
+## 🤖Model Used
     ###Machine Learning Models: Support Vector Machine (SVM), Random Forest (RF), K-Nearest Neighbors (KNN), LightGBM
     ###Deep Learning Models: Convolutional Neural Network (CNN) architectures – ResNet, MobileNetV2, EfficientNet, DenseNet
     ###Framework: TensorFlow / Keras, Scikit-learn, LightGBM
