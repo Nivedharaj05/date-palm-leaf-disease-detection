@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Signin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(to right, #fff3e0, #ffffff);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .signin-container {
+      max-width: 400px;
+      margin: 60px auto;
+      padding: 40px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #00e676; /* Green color */
+    }
+
+    .btn-warning {
+      background-color: #00e676; /* Green button */
+      border: none;
+    }
+
+    .btn-warning:hover {
+      background-color: #00c853; /* Darker green on hover */
+    }
+
+    .form-group label {
+      font-weight: normal; /* Removed bold styling */
+      color: #333;
+    }
+
+    .input-group-text {
+      background-color: #fff3e0;
+      border: none;
+    }
+
+    .form-control {
+      border-left: none;
+    }
+
+    .input-group .form-control:focus {
+      box-shadow: none;
+      border-color: #00e676; /* Green color for focus */
+    }
+
+    .error {
+      color: red;
+      text-align: center;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="signin-container">
+  <h2>Welcome Back</h2>
+  {% if error %}
+    <p class="error">{{ error }}</p>
+  {% endif %}
+  <form method="POST">
+    <div class="form-group">
+      <label>Username</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-user"></i></span>
+        </div>
+        <input type="text" class="form-control" name="username" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Password</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text"><i class="fa fa-lock"></i></span>
+        </div>
+        <input type="password" class="form-control" name="password" required>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-warning btn-block">Login</button>
+    <p class="text-center mt-3">Don't have an account? <a href="{{ url_for('signup') }}">Signup</a></p>
+  </form>
+</div>
+
+</body>
+</html>

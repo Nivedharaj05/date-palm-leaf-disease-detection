@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="https://img.icons8.com/?size=100&id=X78gBGIrZrTl&format=png&color=000000" type="image/png">
+  <!-- Bootstrap & Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    .hero-section {
+      background: url('https://cdn.pixabay.com/photo/2021/02/11/04/58/skyscrapers-6004218_1280.jpg') no-repeat center center/cover;
+      position: relative;
+      height: 100vh;
+      color: white;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1;
+    }
+
+    .navbar {
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .navbar-brand {
+      color: #00e676 !important;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    .nav-link {
+      color: white !important;
+      margin-right: 20px;
+      font-weight: 500;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #00e676;
+      animation: fadeInDown 1.5s ease-in-out;
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      color: #e0f2f1;
+      margin-top: 15px;
+      max-width: 800px;
+      animation: fadeInUp 2s ease-in-out;
+    }
+
+    .scroll-btn {
+      margin-top: 30px;
+    }
+
+    .scroll-btn a {
+      color: #fff;
+      background-color: #00e676;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .scroll-btn a:hover {
+      background-color: #00c853;
+    }
+
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .about-section {
+      padding: 80px 20px;
+      background: linear-gradient(to bottom, #e0f2f1, #ffffff);
+    }
+
+    .about-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      color: #004d40;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .about-section p {
+      max-width: 900px;
+      margin: 0 auto 20px;
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero-section">
+    <div class="overlay"></div>
+    <nav class="navbar navbar-expand-lg fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">🌴 PlantDisease</a>
+        <div class="ml-auto d-flex">
+          <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+          <a class="nav-link" href="{{ url_for('signup') }}">Signup</a>
+          <a class="nav-link" href="{{ url_for('signin') }}">Signin</a>
+        </div>
+      </div>
+    </nav>
+    <div class="container hero-content">
+      <h1>Date Palm Disease Detection System</h1>
+      <p>Empowering Smart Farming with AI-Driven Disease Detection using Machine Learning and Deep Learning Techniques.</p>
+      <div class="scroll-btn">
+        <a href="#about">Learn More ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scrollable About Section -->
+  <div id="about" class="about-section">
+    <h2>About</h2>
+    <p>
+      Date palm production is critical to oasis agriculture, owing to its economic importance and nutritional advantages. Numerous diseases endanger this precious tree, putting a strain on the economy and environment. Parlatoria blanchardi is a damaging bug that degrades the quality of dates. When an infestation reaches a peak, it might result in the tree’s death.
+    </p>
+    <p>
+      To counter this threat, precise detection of infected leaves and its infestation degree is important to decide if chemical treatment is necessary. This decision is crucial for farmers who wish to minimize yield losses while preserving production quality.
+    </p>
+    <p>
+      To classify the White Scale Disease (WSD) into its four classes (healthy, low infestation, medium infestation, and high infestation), both classical machine learning models like SVM, KNN, Random Forest, and LightGBM were implemented using GLCM and HSV features.
+    </p>
+    <p>
+      Furthermore, advanced Convolutional Neural Networks (CNNs) such as ResNet50, MobileNetV2, InceptionV3, and DenseNet121 were employed for high-accuracy classification from leaf images. These deep learning models learn complex patterns automatically and enhance prediction performance.
+    </p>
+    <p>
+      The system is deployed using Flask, offering a web-based platform where users can register, upload a leaf image, and get instant predictions. This AI-based solution is a step forward in smart agriculture and precision farming for date palm disease management.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Date Palm Disease Detection | All Rights Reserved.
+  </footer>
+
+</body>
+</html>

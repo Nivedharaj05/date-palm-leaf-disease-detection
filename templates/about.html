@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About | Date Palm Disease Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to bottom, #e0f2f1, #ffffff);
+      height: 100%;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 10px 0;
+    }
+
+    .navbar-brand {
+      color: #00e676 !important;
+      font-weight: bold;
+      font-size: 1.6rem;
+    }
+
+    .nav-link {
+      color: white !important;
+      margin-right: 20px;
+      font-weight: 500;
+    }
+
+    .about-section {
+      padding: 120px 20px 60px;
+      min-height: 100vh;
+      overflow-y: auto;
+    }
+
+    .about-section h1 {
+      color: #004d40;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 40px;
+      font-weight: bold;
+    }
+
+    .about-section p {
+      font-size: 1.2rem;
+      line-height: 1.8;
+      color: #333;
+      text-align: justify;
+      max-width: 900px;
+      margin: 0 auto 30px auto;
+    }
+
+    footer {
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('home') }}">🌴 PlantDisease</a>
+      <div class="ml-auto d-flex">
+        <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+        <a class="nav-link" href="{{ url_for('signup') }}">Signup</a>
+        <a class="nav-link" href="{{ url_for('signin') }}">Signin</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- About Content -->
+  <div class="about-section container">
+    <h1>About the Project</h1>
+
+    <p>
+      Date palm production is critical to oasis agriculture, owing to its economic importance and nutritional advantages. Numerous diseases endanger this precious tree, putting a strain on the economy and environment. Parlatoria blanchardi is a damaging bug that degrades the quality of dates. When an infestation reaches a peak, it might result in the tree’s death.
+    </p>
+
+    <p>
+      To counter this threat, precise detection of infected leaves and its infestation degree is important to decide if chemical treatment is necessary. This decision is crucial for farmers who wish to minimize yield losses while preserving production quality.
+    </p>
+
+    <p>
+      To classify the White Scale Disease (WSD) into its four classes (healthy, low infestation, medium infestation, and high infestation), both classical machine learning models like SVM, KNN, Random Forest, and LightGBM were implemented using GLCM and HSV features.
+    </p>
+
+    <p>
+      Furthermore, advanced Convolutional Neural Networks (CNNs) such as ResNet50, MobileNetV2, InceptionV3, and DenseNet121 were employed for high-accuracy classification from leaf images. These deep learning models learn complex patterns automatically and enhance prediction performance.
+    </p>
+
+    <p>
+      The system is deployed using Flask, offering a web-based platform where users can register, upload a leaf image, and get instant predictions. This AI-based solution is a step forward in smart agriculture and precision farming for date palm disease management.
+    </p>
+  </div>
+
+  <footer>
+    &copy; 2025 Date Palm Disease Detection | All Rights Reserved.
+  </footer>
+
+</body>
+</html>

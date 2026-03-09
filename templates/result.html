@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      padding: 40px;
+    }
+    .result-box {
+      text-align: center;
+      background: #f9f9f9;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      max-width: 700px;
+      margin: auto;
+    }
+    .result-box img {
+      max-width: 300px;
+      border-radius: 15px;
+    }
+    .result-box h2 {
+      margin-top: 20px;
+      font-size: 2rem;
+      color: #004d40;
+    }
+  </style>
+</head>
+<body>
+  <div class="result-box">
+    <h1>Prediction Result</h1>
+    <img src="{{ url_for('static', filename='uploads/' + image_path.split('/')[-1]) }}" alt="Uploaded Leaf">
+    <h2>Classified as: <span style="color: #00c853;">{{ result }}</span></h2>
+    <a href="{{ url_for('upload') }}" class="btn btn-primary mt-4">Try Another Image</a>
+  </div>
+</body>
+</html>

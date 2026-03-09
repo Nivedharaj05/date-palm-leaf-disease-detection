@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if result %}Result{% else %}Home{% endif %}</title>
+  <link rel="icon" href="https://cdn1.iconfinder.com/data/icons/form-1/256/glyph_step2-1024.png" type="image/png">
+
+  <!-- Bootstrap & Google Fonts -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background: {% if result %}
+        url("{{ url_for('static', filename='images/background2.png') }}")
+      {% else %}
+        url("{{ url_for('static', filename='images/background.png') }}")
+      {% endif %} no-repeat center center fixed;
+      background-size: cover;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .upload-box {
+      max-width: 720px;
+      margin: 80px auto;
+      padding: 60px 50px;
+      text-align: center;
+      {% if result %}
+        background: none; 
+      {% else %}
+        background: rgba(0, 0, 0, 0.4);
+        backdrop-filter: blur(8px);
+        border-radius: 25px;
+      {% endif %}
+    }
+
+    .upload-box h2 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+      color: #ffffff;
+    }
+
+    .upload-box p {
+      font-size: 1.1rem;
+      margin-bottom: 35px;
+      color: #c8e6c9;
+    }
+
+    .form-group input[type="file"] {
+      padding: 16px;
+      border: 2px dashed #c8e6c9;
+      background: rgba(255, 255, 255, 0.07);
+      border-radius: 18px;
+      width: 100%;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .form-group input[type="file"]::file-selector-button {
+      background: #4CAF50;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #ffffff;
+    }
+
+    .btn-upload {
+      background-color: #4CAF50;
+      border: none;
+      padding: 14px 45px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #ffffff;
+      border-radius: 30px;
+      margin-top: 25px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-upload:hover {
+      background-color: #45a049;
+    }
+
+    .result-text {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-top: 35px;
+      color: #ffffff;
+    }
+
+    .leaf-image {
+      max-width: 100%;
+      max-height: 420px;
+      margin-top: 30px;
+    }
+
+.result-text {
+  font-size: 3rem; 
+  font-weight: 700;
+  margin-top: 35px;
+  color: #ffffff;
+  text-align: center; 
+}
+
+.result-heading {
+  font-size: 1.5rem;  /* Slightly smaller heading */
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.result-info {
+  font-size: 1rem;  /* Smaller info text */
+  color: #c8e6c9;
+  margin-top: 10px;
+}
+
+.predicted-label {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 15px;
+  padding: 12px 24px;
+  display: inline-block;
+  text-align: center; /* Center the result label */
+}
+.try-again-btn {
+  background-color: #4CAF50;
+  color: #ffffff;
+  border: none;
+  padding: 12px 35px;
+  font-weight: 600;
+  border-radius: 30px;
+  font-size: 1rem;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.try-again-btn:hover {
+  background-color: #45a049;
+}
+   
+  </style>
+</head>
+<body>
+  <div class="fullscreen-container">
+    <div class="upload-box">
+      
+      {% if not result %}
+        <h2>Date Palm Disease Classifier</h2>
+        <p>Please upload a leaf image to identify its disease stage.</p>
+        <form action="{{ url_for('upload') }}" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <input type="file" name="file" accept="image/*" required>
+          </div>
+          <button type="submit" class="btn btn-upload">Upload Image</button>
+        </form>
+      {% endif %}
+
+{% if result %}
+  <div class="result-card">
+    <h4 class="result-text">Your Prediction</h4>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Leaf Image" class="leaf-image">
+    <p class="result-info mt-4">
+      For the given input image, the Date Palm leaf is classified as:
+    </p>
+    <div class="predicted-label">{{ result }}</div>
+    <p class="result-info mt-4">
+      Confidence: {{ confidence }}%
+    </p>
+    <div class="mt-5 text-left">
+      <a href="{{ url_for('upload') }}">
+        <button class="try-again-btn">Try Again?</button>
+      </a>
+    </div>
+  </div>
+{% endif %}
