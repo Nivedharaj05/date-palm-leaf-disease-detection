@@ -17,7 +17,7 @@ This project is a Machine Learning based web application that detects diseases i
 
 ## ⚙️Technologies Used
 
-###🔹 Programming Language
+### 🔹 Programming Language
 
   • Python – Core language used for preprocessing, model training, and application logic
   
